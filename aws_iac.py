@@ -100,6 +100,9 @@ class AwsIac(object):
             print("Exception after the wait with message {}".format(e))
 
     def delete_redshift_cluster(self):
+        '''
+            Deletes the redshift role and the cluster and waits till the cluster is completely deleted
+        '''
         self.delete_redshift_role()
         redshift_client = boto3.client('redshift', 
                             aws_access_key_id=self.access_key,
